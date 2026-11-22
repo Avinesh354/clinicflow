@@ -1,0 +1,8 @@
+# For hosts where compiling mysqlclient is awkward: pure-Python MySQL driver instead.
+# config/__init__.py switches to PyMySQL automatically when mysqlclient is absent.
+Django>=5.2,<5.3
+djangorestframework>=3.15
+PyMySQL>=1.1
+cryptography>=42      # PyMySQL needs it for MySQL 8's default password method
+whitenoise>=6.7
+Faker>=30

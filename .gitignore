@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+# Node
+node_modules/
+dist/
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+# Secrets and local data
+.env
+*.sqlite3
+# Server-side build output
+backend/staticfiles/

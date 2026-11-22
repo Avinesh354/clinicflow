@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql:8.4          # 8.0 reached end-of-life in April 2026
+    environment:
+      MYSQL_DATABASE: clinicflow
+      MYSQL_USER: clinicflow
+      MYSQL_PASSWORD: clinicflow
+      MYSQL_ROOT_PASSWORD: root
+    ports: ["3306:3306"]
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci"]
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./docker/mysql-init.sql:/docker-entrypoint-initdb.d/10-test-grants.sql:ro
+volumes:
+  dbdata:
