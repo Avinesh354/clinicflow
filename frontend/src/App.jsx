@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { api } from "./api";
+import { api, DEMO } from "./api";
 import Login from "./pages/Login.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Queue from "./pages/Queue.jsx";
@@ -51,6 +51,13 @@ export default function App() {
         </div>
       </aside>
       <main className="main">
+        {DEMO && (
+          <p className="demo-banner">
+            <strong>Demo version.</strong> This runs entirely in your browser on generated sample data, and changes reset
+            when you refresh. The full app (Django + MySQL, with database-enforced booking rules) is on{" "}
+            <a href="https://github.com/Avinesh354/clinicflow" target="_blank" rel="noreferrer">GitHub</a>.
+          </p>
+        )}
         {current === "dashboard" ? <Dashboard /> : current === "queue" ? <Queue notify={notify} user={user} /> : <Appointments notify={notify} user={user} />}
       </main>
       {toast && <div className={`toast ${toast.kind}`} role="status">{toast.text}</div>}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { api } from "../api";
+import { api, DEMO } from "../api";
 
 export default function Login({ onLogin }) {
   const [form, setForm] = useState({ username: "", password: "" });
@@ -12,6 +12,12 @@ export default function Login({ onLogin }) {
     try { onLogin(await api("/auth/login/", { method: "POST", body: form })); }
     catch (err) { setError(err.message); }
     finally { setBusy(false); }
+  };
+
+  const quick = async (username) => {
+    setError("");
+    try { onLogin(await api("/auth/login/", { method: "POST", body: { username, password: "demo" } })); }
+    catch (err) { setError(err.message); }
   };
 
   return (
@@ -27,6 +33,16 @@ export default function Login({ onLogin }) {
         <label>Password<input type="password" required value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} /></label>
         {error && <p className="form-error" role="alert">{error}</p>}
         <button className="btn primary" disabled={busy}>{busy ? "Signing in…" : "Sign in"}</button>
+        {DEMO && (
+          <div className="quick">
+            <p className="muted">Demo version: try a role in one click (password: demo)</p>
+            <div>
+              {[["admin", "Admin"], ["reception1", "Receptionist"], ["doctor1", "Doctor"]].map(([u, label]) => (
+                <button type="button" key={u} className="btn ghost" onClick={() => quick(u)}>{label}</button>
+              ))}
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );

@@ -175,3 +175,9 @@ tbody tr:hover { background: #fafcfc; }
   .kpi:nth-child(n+3) { border-top: 1px solid var(--line); }
   .dash-grid { grid-template-columns: 1fr; }
 }
+
+/* Netlify demo */
+.demo-banner { background: #fff7e0; border: 1px solid #f0d9a0; color: #6b4a00; padding: 10px 14px; border-radius: 8px; margin: 0 0 20px; font-size: .9rem; }
+.demo-banner a { color: inherit; font-weight: 600; }
+.quick { display: grid; gap: 8px; }
+.quick div { display: flex; gap: 8px; flex-wrap: wrap; }
