@@ -10,8 +10,8 @@ enforced by MySQL itself and proven by parallel-request tests.
 > All data is synthetic (generated names, fake phone numbers). Never load real patient data.
 
 ## Live demo
-**https://YOUR-ACCOUNT.alwaysdata.net** (replace this after you deploy; see [DEPLOY.md](DEPLOY.md))
-Sign in as `reception1` or `doctor1` with the demo password you set. Data is synthetic and may be reset at any time.
+**https://phenomenal-pie-63cc4c.netlify.app/** is a browser-only demo with generated sample data (the full Django + MySQL app is in this repository).
+Click Admin, Receptionist or Doctor on the login page. Changes reset when you refresh.
 
 ## Screenshots
 | Dashboard | Live queue | Appointments |
